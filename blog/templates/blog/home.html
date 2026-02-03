@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+    <h1>
+        Ramón Peralta Martinez
+    </h1>
+    <h2>
+        Welcome to my blog! It's nice to see you here!
+    </h2>
+<body>
+    <ul>
+        <li>
+            <a href="{% url 'post-index' %}"> {{blog_section|title}}</a>
+        </li>
+    </ul>
+</body>
+
+</html>
