@@ -1,5 +1,10 @@
 
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="style-sheet" href="{%static 'blog/post_detail.css' %}" >
+{% endblock %}
 
 {% block page_title %}
 {{title|title}}
