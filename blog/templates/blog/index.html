@@ -1,21 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All the posts</title>
-</head>
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="style-sheet" href="{%static 'blog/index.css' %}" >
+{% endblock %}
+
+
+{% block page_title %}
+Home
+{% endblock %}
+
+{% block content %}
     <h1>
-        Post Index
+        Ramón Peralta Martinez
     </h1>
+    <h2>
+        Welcome to my blog! It's nice to see you here!
+    </h2>
 <body>
     <ul>
-    {% for post in posts %}
-    <li>
-        <a href="{% url 'post-content' post %}" > {{post|title}} </a>
-    </li>
-    {% endfor %}
+        <li>
+            <a href="{% url 'posts-page' %}"> {{blog_section|title}}</a>
+        </li>
     </ul>
-
 </body>
-</html>
+{% endblock %}

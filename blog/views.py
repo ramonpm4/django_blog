@@ -5,32 +5,32 @@ from django.http import Http404, HttpResponse
 
 
 
-my_posts = {
-    'The real man': 'Content: The real man',
-    'Why you should learn django.': 'Content: Why you should learn django.'
-}
+my_posts = [
+    {'title': 'The real man', 'slug':'the-real-man', 'content': 'This is my first post.'},
+    {'title': 'Why you should learn django.','slug': 'why-to-learn-django' , 'content': 'Why you should learn django.'}
+]
 
 
-def home_blog(request) -> HttpResponse:
-    return render(request, "blog/home.html", {
-        'blog_section': 'Home'
-    })
-
-
-
-def index(request) -> HttpResponse:
-    posts = list(my_posts.keys())
+def starting_page(request) -> HttpResponse:
     return render(request, "blog/index.html", {
-        'posts' : posts
+        'blog_section': 'Posts'
+    })
+
+
+
+def posts(request) -> HttpResponse:
+    return render(request, "blog/posts.html", {
+        'posts' : my_posts
     })
     
     
-def post_content(request, post) -> HttpResponse:
+def post_detail(request, slug) -> HttpResponse:
+    
     try:
-        post_text = my_posts[post]
-        return render(request, "blog/post_content.html", {
-            'text': post_text,
-            'selected_post': post
+        selected_post = next(p for p in my_posts if p['slug'] == slug)
+        return render(request, "blog/post_detail.html", {
+            'text': selected_post["content"],
+            'title': selected_post["title"]
         })
     except:
         raise Http404
