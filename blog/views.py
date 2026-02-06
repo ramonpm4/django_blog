@@ -19,9 +19,7 @@ def starting_page(request) -> HttpResponse:
 
 
 def posts(request) -> HttpResponse:
-    return render(request, "blog/all-posts.html", {
-        'posts' : my_posts
-    })
+    return render(request, "blog/all-posts.html")
     
     
 def post_detail(request, slug) -> HttpResponse:
