@@ -3,20 +3,44 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="style-sheet" href="{%static 'blog/post_detail.css' %}" >
+    <link rel="stylesheet" href="{% static 'blog/post_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/all-posts.css' %}">
+
 {% endblock %}
 
 {% block page_title %}
-{{title|title}}
+This post title
 {% endblock %}
 
 
 
 {% block content %}
-<h1>
-    {{title}}
-</h1>
-    <p>
-        {{text}}
-    </p>
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static "blog/images/mountains.jpg" %}" alt="Post Title" />
+            <address>By Ramon</address>
+            <div>
+                Last Update on <time>February 2nd</time>
+            </div>
+        </article>
+    </section>
+
+    <main>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
+        </p>
+                <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
+        </p>
+                <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
+        </p>
+                <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
+        </p>
+                <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
+        </p>
+    </main>
 {% endblock %}

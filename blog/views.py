@@ -22,15 +22,7 @@ def posts(request) -> HttpResponse:
     return render(request, "blog/all-posts.html")
     
     
-def post_detail(): 
-    pass
+def post_detail(request, slug) -> HttpResponse: 
+    return render(request, "blog/post_detail.html")
 
 
-    # try:
-    #     selected_post = next(p for p in my_posts if p['slug'] == slug)
-    #     return render(request, "blog/post_detail.html", {
-    #         'text': selected_post["content"],
-    #         'title': selected_post["title"]
-    #     })
-    # except:
-    #     raise Http404
