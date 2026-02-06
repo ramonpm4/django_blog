@@ -75,15 +75,19 @@ my_posts = [
             """
         }]
     
-
+# Helper function:
+def get_date(post):
+    return post['date']
 
 
 def starting_page(request) -> HttpResponse:
+    sorted_posts = sorted(my_posts, key=get_date) # sorted de por si itera sobre cada elemento de la lista. Para ordenar usa 'key' como parametro que yo le puse get_date que agarra el elemento y busca la date.
+    latest_posts = sorted_posts[-3:]
     return render(request, "blog/index.html", {
-        'blog_section': 'Posts'
+        'latest_posts': latest_posts
     })
 
-
+# la diferencia entre usar key=get_date y key=get_date() es que en el primer caso se PASA la funcion, en el segundo se ejecuta. 
 
 def posts(request) -> HttpResponse:
     return render(request, "blog/all-posts.html")
