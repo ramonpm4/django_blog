@@ -12,19 +12,10 @@
 Home
 {% endblock %}
 {% block content %}
-    <header id="main-navigation">
-        <h1>
-            <a href=""> Blog de Ramon </a> 
-        </h1>
-        <nav>
-            <a href=""> All Posts </a>
-        </nav>
-    </header>
-
     <section id="welcome">
         <header>
-            <img src="" alt="Ramon - The author of this blog." />
-            <h2>Blog de Ramon</h2>
+            <img src="{% static "blog/images/ramon.jpeg" %}" alt="Ramon - The author of this blog." />
+            <h2>Ramón Peralta Martínez</h2>
         </header>
         <p> Hola, soy Ramón y me apasiona crear software para empresas agropecuarias.</p>
     </section>
@@ -34,18 +25,7 @@ Home
             Reflexiones
         </h2>
         <ul>
-            <li>
-                <article class="post">
-                    <a href="">
-                        <img src="" alt="Viaje a La Josefina - Saavedra" />
-                        <div class="post__content">
-                            <h3>Viaje a La Josefina - Saavedra</h3>
-                            <p>En este viaje pude conocer en mayor profundiad la estancia La Josefina. Compartir con mi hermano y aprender de ganaderia regenerativa.</p>
-
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include "blog/includes/post.html" %}
         </ul>
     </section>
 
