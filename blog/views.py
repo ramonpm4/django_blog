@@ -90,10 +90,15 @@ def starting_page(request) -> HttpResponse:
 # la diferencia entre usar key=get_date y key=get_date() es que en el primer caso se PASA la funcion, en el segundo se ejecuta. 
 
 def posts(request) -> HttpResponse:
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", {
+        'all_posts': my_posts
+    })
     
     
 def post_detail(request, slug) -> HttpResponse: 
-    return render(request, "blog/post_detail.html")
+    post = next((p for p in my_posts if p['slug'] == slug), None)
+    return render(request, "blog/post_detail.html", {
+        'post': post
+    })
 
 
