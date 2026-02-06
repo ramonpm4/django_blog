@@ -13,7 +13,7 @@ my_posts = [
             'author': 'Ramon',
             'date': date(2026, 2, 8),
             'title': 'Viaje a La Josefina - Saavedra',
-            'excert': 'En este viaje pude conocer en mayor profundiad la estancia La Josefina. Compartir con mi hermano y aprender de ganaderia regenerativa.',
+            'excerpt': 'En este viaje pude conocer en mayor profundiad la estancia La Josefina. Compartir con mi hermano y aprender de ganaderia regenerativa.',
             'content': """
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
                 sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.

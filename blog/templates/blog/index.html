@@ -22,10 +22,16 @@ Home
 
     <section id="latest-posts">
         <h2>
-            Reflexiones
+            Latest Posts
         </h2>
         <ul>
-            {% include "blog/includes/post.html" %}
+            {% for post in latest_posts %}
+            <li>
+                <a href="{% url 'post-detail-page' post.slug %}"
+                {% include "blog/includes/post.html" %}
+            </li>
+            {% endfor %}
+            
         </ul>
     </section>
 

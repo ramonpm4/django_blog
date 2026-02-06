@@ -3,10 +3,10 @@
 <li>
     <article class="post">
         <a href="{% url 'post-detail-page' slug='the-mountains' %}">
-            <img src="{% static "blog/images/mountains.jpg" %}" alt="Viaje a La Josefina - Saavedra" />
+            <img src="{% static "blog/images/"|add:post.image %}" alt="Viaje a La Josefina - Saavedra" />
             <div class="post__content">
-                <h3>Viaje a La Josefina - Saavedra</h3>
-                <p>En este viaje pude conocer en mayor profundiad la estancia La Josefina. Compartir con mi hermano y aprender de ganaderia regenerativa.</p>
+                <h3>{{post.title}}</h3>
+                <p>{{post.excerpt}}</p>
 
             </div>
         </a>
