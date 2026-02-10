@@ -4,6 +4,9 @@ from django.contrib import admin
 
 from .models import Author, Post, Tag
 
-admin.site.register(Author)
+class BookAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+
+admin.site.register(Author, BookAdmin)
 admin.site.register(Post)
 admin.site.register(Tag)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -38,6 +39,10 @@ class Post(models.Model):
     slug = models.SlugField(default="", blank=True,  null=False, db_index=True) 
     content = models.TextField(default="")
     tag = models.ManyToManyField(Tag)
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title) # Esto crea un slug a partir del title antes de que se guarde (abajo).
+        super().save( *args, **kwargs) # Esto es para mantener los save methods que ya tenemos. 
     
     def __str__(self) -> str:
         return f"{self.title} ({self.date_created})"
