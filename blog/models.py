@@ -34,9 +34,9 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name='post')
     excerpt = models.CharField(max_length=500)
     image_name = models.CharField(max_length=50)
-    date_created = models.DateField(auto_now_add=True)
+    date_created = models.DateField(auto_now_add=True, null=True)
     slug = models.SlugField(default="", blank=True,  null=False, db_index=True) 
-    content = models.TextField()
+    content = models.TextField(default="")
     tag = models.ManyToManyField(Tag)
     
     def __str__(self) -> str:
