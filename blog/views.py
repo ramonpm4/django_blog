@@ -88,11 +88,11 @@ def starting_page(request) -> HttpResponse:
         'latest_posts': latest_posts
     })
 
-# la diferencia entre usar key=get_date y key=get_date() es que en el primer caso se PASA la funcion, en el segundo se ejecuta. 
 
 def posts(request) -> HttpResponse:
+    all_posts = Post.objects.all()
     return render(request, "blog/all-posts.html", {
-        'all_posts': my_posts
+        'all_posts': all_posts
     })
     
     
