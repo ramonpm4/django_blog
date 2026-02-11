@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from datetime import date
+from .models import Author, Post, Tag
 
 # Create your views here.
 
@@ -76,8 +77,11 @@ my_posts = [
         }]
     
 # Helper function:
-def get_date(post):
-    return post['date']
+# def get_date(models.post):
+#     return post['date']
+
+def get_date():
+    return Post.objects.values('date_created')
 
 
 def starting_page(request) -> HttpResponse:
