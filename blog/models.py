@@ -6,7 +6,7 @@ from django.utils.text import slugify
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    mail_address = models.CharField(max_length=50)
+    mail_address = models.CharField(max_length=50) # Hubiese sido mejor hacer EmailField xq verifica que tiene forma de email. 
     
     def full_name(self) -> str:
         return f"{self.first_name} {self.last_name}"
@@ -32,10 +32,10 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=150)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name='post')
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, related_name='post') # SET_NULL para que aparezca Null si delete author.
     excerpt = models.CharField(max_length=500)
     image_name = models.CharField(max_length=50)
-    date_created = models.DateField(auto_now_add=True, null=True)
+    date_created = models.DateField(auto_now_add=True)
     slug = models.SlugField(default="", blank=True,  null=False, db_index=True, unique=True) 
     content = models.TextField(default="")
     tag = models.ManyToManyField(Tag)
