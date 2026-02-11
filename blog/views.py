@@ -80,13 +80,10 @@ my_posts = [
 # def get_date(models.post):
 #     return post['date']
 
-def get_date():
-    return Post.objects.values('date_created')
-
 
 def starting_page(request) -> HttpResponse:
-    sorted_posts = sorted(my_posts, key=get_date) # sorted de por si itera sobre cada elemento de la lista. Para ordenar usa 'key' como parametro que yo le puse get_date que agarra el elemento y busca la date.
-    latest_posts = sorted_posts[-3:]
+    sorted_posts = Post.objects.all().order_by('-date_created') 
+    latest_posts = sorted_posts[:3]
     return render(request, "blog/index.html", {
         'latest_posts': latest_posts
     })
