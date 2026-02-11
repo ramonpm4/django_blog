@@ -97,7 +97,8 @@ def posts(request) -> HttpResponse:
     
     
 def post_detail(request, slug) -> HttpResponse: 
-    post = next((p for p in my_posts if p['slug'] == slug), None)
+    post = Post.objects.get(slug=slug)
+    #post = next((p for p in my_posts if p['slug'] == slug), None)
     return render(request, "blog/post_detail.html", {
         'post': post
     })

@@ -18,10 +18,10 @@
     <section id="summary">
         <h2>{{post.title}}</h2>
         <article>
-            <img src="{% static "blog/images/"|add:post.image %}" alt="Post Title" />
+            <img src="{% static "blog/images/"|add:post.image_name %}" alt="Post Title" />
             <address>{{post.author}}</address>
             <div>
-                Last Update on <time>{{post.date}}</time>
+                Last Update on <time>{{post.date_created}}</time>
             </div>
         </article>
     </section>
@@ -31,5 +31,5 @@
             {{post.content|linebreaks}}
         </p>
     </main>
-    
+
 {% endblock %}
