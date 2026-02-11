@@ -36,7 +36,7 @@ class Post(models.Model):
     excerpt = models.CharField(max_length=500)
     image_name = models.CharField(max_length=50)
     date_created = models.DateField(auto_now_add=True, null=True)
-    slug = models.SlugField(default="", blank=True,  null=False, db_index=True) 
+    slug = models.SlugField(default="", blank=True,  null=False, db_index=True, unique=True) 
     content = models.TextField(default="")
     tag = models.ManyToManyField(Tag)
     

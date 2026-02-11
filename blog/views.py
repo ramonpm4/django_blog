@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from datetime import date
-from .models import Author, Post, Tag
+from .models import Post
 
 # Create your views here.
 
@@ -76,10 +76,6 @@ my_posts = [
             """
         }]
     
-# Helper function:
-# def get_date(models.post):
-#     return post['date']
-
 
 def starting_page(request) -> HttpResponse:
     sorted_posts = Post.objects.all().order_by('-date_created') 
