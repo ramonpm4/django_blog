@@ -7,79 +7,8 @@ from .models import Post
 
 
 
-my_posts = [
-        {
-            'slug': 'hike-in-the-mountains',
-            'image': 'mountains.jpg',
-            'author': 'Ramon',
-            'date': date(2026, 2, 8),
-            'title': 'Viaje a La Josefina - Saavedra',
-            'excerpt': 'En este viaje pude conocer en mayor profundiad la estancia La Josefina. Compartir con mi hermano y aprender de ganaderia regenerativa.',
-            'content': """
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
-                sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
-            
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
-                sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
-            
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
-                sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
-            
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
-                sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
-            
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum ab voluptates delectus reiciendis esse eos accusamus doloremque 
-                sapiente dolorum placeat ipsam repellendus quia, rem quae aut doloribus deserunt maxime incidunt.
-                
-            """
-        },
-        {
-            "slug": "programming-is-fun",
-            "image": "coding.jpg",
-            "author": "Maximilian",
-            "date": date(2022, 3, 10),
-            "title": "Programming Is Great!",
-            "excerpt": "Did you ever spend hours searching that one error in your code? Yep - that's what happened to me yesterday...",
-            "content": """
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-            """
-        },
-        {
-            "slug": "into-the-woods",
-            "image": "woods.jpg",
-            "author": "Maximilian",
-            "date": date(2020, 8, 5),
-            "title": "Nature At Its Best",
-            "excerpt": "Nature is amazing! The amount of inspiration I get when walking in nature is incredible!",
-            "content": """
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nobis
-            aperiam est praesentium, quos iste consequuntur omnis exercitationem quam
-            velit labore vero culpa ad mollitia? Quis architecto ipsam nemo. Odio.
-            """
-        }]
-    
-
 def starting_page(request) -> HttpResponse:
-    sorted_posts = Post.objects.all().order_by('-date_created') 
-    latest_posts = sorted_posts[:3]
+    latest_posts = Post.objects.all().order_by('-date_created')[:3] #Poner [:3] aca es mejor porque detras hace SQL query para solo los 3. Mas eficiente. 
     return render(request, "blog/index.html", {
         'latest_posts': latest_posts
     })
